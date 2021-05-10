@@ -11,10 +11,10 @@ class SupportActivity : AppCompatActivity() {
         setContentView(R.layout.activity_support)
 
         // Get reference to button
-        val btnBackVal = findViewById<Button>(R.id.btnBack)
+        val btnBACK = findViewById<Button>(R.id.btnBack)
 
         // set on-click listener
-        btnBackVal.setOnClickListener {
+        btnBACK.setOnClickListener {
             Intent(this,MainActivity::class.java).also {
                 startActivity(it)
             }
