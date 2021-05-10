@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AtTheShop</string>
+    <string name="textview">TextView</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="brugernavn">Brugernavn</string>
+    <string name="name">Name</string>
+    <string name="log_in">Log In</string>
+    <string name="kodeord">Kodeord</string>
+    <string name="support">Support</string>
+    <string name="name">Name</string>
 </resources>
