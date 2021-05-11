@@ -26,9 +26,9 @@
         app:layout_constraintStart_toEndOf="@+id/btnFragment1"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <fragment
-        android:name="com.example.attheshop.Frist_Fragment"
-        android:id="@+id/fragment"
+    <FrameLayout
+
+        android:id="@+id/flfragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
