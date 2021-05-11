@@ -8,7 +8,19 @@ class Fragmenthistory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragmenthistory)
 
+        val firstFragment = Frist_Fragment()
+        val secondFragment = Second_Fragment()
+
+        supportFragmentManager.beginTransaction().apply{
+            replace(R.id.flfragment, firstFragment)
+            commit()
+        }
+
+
+
 
 
     }
+
+
 }
