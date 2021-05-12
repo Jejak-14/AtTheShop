@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -9,6 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.attheshop"
+        //kasper har hævet sit---------------------------------------<<<<<
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
