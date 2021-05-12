@@ -11,23 +11,53 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
-        android:text="Send Accept"
+        android:text="@string/send_accept"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.836" />
+        app:layout_constraintTop_toBottomOf="@+id/theProposition"
+        app:layout_constraintVertical_bias="0.989" />
 
     <TextView
         android:id="@+id/theProposition"
-        android:layout_width="198dp"
-        android:layout_height="188dp"
-        android:text="TextView"
+        android:layout_width="324dp"
+        android:layout_height="217dp"
+        android:gravity="center"
+        android:text="@string/the_proposition_will_be_displayed_here"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
+
+    <Switch
+        android:id="@+id/acceptOrRefusal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refuse_proposition"
+        app:layout_constraintBottom_toTopOf="@+id/theRefusal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.825"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/theProposition"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <EditText
+        android:id="@+id/theRefusal"
+        android:layout_width="324dp"
+        android:layout_height="214dp"
+        android:ems="10"
+        android:hint="@string/please_write_your_concern_here"
+        android:importantForAutofill="no"
+        android:inputType="textLongMessage|textMultiLine"
+        android:isScrollContainer="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/theProposition" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

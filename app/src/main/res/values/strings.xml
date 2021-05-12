@@ -8,4 +8,9 @@
     <string name="kodeord">Kodeord</string>
     <string name="support">Support</string>
     <string name="velkommen">Velkommen</string>
+    <string name="refusal_proposition">Denied Proposition</string>
+    <string name="send_accept">Send Accept</string>
+    <string name="please_write_your_concern_here">Please write your concern here</string>
+    <string name="the_proposition_will_be_displayed_here">The proposition will be displayed here</string>
+    <string name="refuse_proposition">Refuse Proposition</string>
 </resources>
