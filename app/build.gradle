@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.attheshop"
-        //kasper har hævet sit---------------------------------------<<<<<
+        multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -77,8 +77,8 @@ dependencies {
 
 
     //---------WOLLEY----------//
-    implementation 'com.android.volley:volley:1.1.0'
 
-    //---------WORKMANAGER ADDINGS----------//
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.android.volley:volley:1.2.0'
 
 }
