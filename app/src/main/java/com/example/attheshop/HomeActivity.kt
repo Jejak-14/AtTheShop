@@ -13,6 +13,7 @@ class HomeActivity : AppCompatActivity() {
         // Get reference to button
         val btnBACK = findViewById<Button>(R.id.btnBackHome)
         val btnPLANNING = findViewById<Button>(R.id.btnPlanning)
+        val btnHISTORY = findViewById<Button>(R.id.btnHistory)
 
         // set on-click listener
         btnBACK.setOnClickListener {
@@ -29,5 +30,12 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
+        btnHISTORY.setOnClickListener {
+            Intent(this, History::class.java).also{
+                startActivity(it)
+            }
+        }
+
     }
 }
