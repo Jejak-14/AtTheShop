@@ -11,6 +11,15 @@ import androidx.lifecycle.Observer
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_planning.*
+<<<<<<< HEAD
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONException
+import org.json.JSONObject
+=======
+>>>>>>> master
 
 
 class PlanningActivity : AppCompatActivity() {
@@ -55,5 +64,45 @@ class PlanningActivity : AppCompatActivity() {
                 theProposition.text = it.state.name
             })
     }
+<<<<<<< HEAD
+
+    private fun loaddata() {
+        val stringRequest = StringRequest(Request.Method.GET,
+            EndPoints.URL_GETDATA,
+            Response.Listener<String> { s ->
+                try {
+                    val obj = JSONObject(s)
+                    if (!obj.getBoolean("error")) {
+                        val array = obj.getJSONArray("artists")
+
+                        for (i in 0..array.length() - 1) {
+                            val objectTask = array.getJSONObject(i)
+                            val task = Task(
+                                objectTask.getString("Ordrenummer"),
+                                objectTask.getString("Pris"),
+                                objectTask.getString("Nummerplade"),
+                                objectTask.getString("Aendringer"),
+                                objectTask.getString("Besked"),
+                                objectTask.getString("Ordrestatus")
+
+                            )
+                            artistList!!.add(artist)
+                            val adapter = ArtistList(this@ViewArtistsActivity, artistList!!)
+                            listView!!.adapter = adapter
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_LONG).show()
+                    }
+                } catch (e: JSONException) {
+                    e.printStackTrace()
+                }
+            }, Response.ErrorListener { volleyError -> Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show() })
+
+        val requestQueue = Volley.newRequestQueue(this)
+        requestQueue.add<String>(stringRequest)
+    }
+}
+=======
+>>>>>>> master
 }
 

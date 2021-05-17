@@ -75,5 +75,10 @@ dependencies {
     //noinspection GradleDependency
     implementation "androidx.work:work-multiprocess:$work_version"
 
+<<<<<<< HEAD
+    //---------WOLLEY----------//
+    implementation 'com.android.volley:volley:1.1.0'
+=======
     //---------WORKMANAGER ADDINGS----------//
+>>>>>>> master
 }
