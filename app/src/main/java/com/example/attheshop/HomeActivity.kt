@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.recyclerview.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnHISTORY.setOnClickListener {
-            Intent(this, History::class.java).also{
+            Intent(this,RecyclerView::class.java).also{
                 startActivity(it)
             }
         }

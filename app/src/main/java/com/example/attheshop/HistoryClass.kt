@@ -1,6 +1,9 @@
 package com.example.attheshop
 
+import android.widget.Button
+
 data class HistoryClass (
-    val title: String,
-    var isChecked: Boolean
+    var title: String,
+    var isChecked: Boolean,
+
         )
