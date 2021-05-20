@@ -8,24 +8,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_planning.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-import kotlin.collections.HashMap
-
 
 class PlanningActivity : AppCompatActivity() {
 
     private var theView: TextView? = null
-    private var taskList: MutableList<Task>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +30,8 @@ class PlanningActivity : AppCompatActivity() {
         val swONE = findViewById<Switch>(R.id.acceptOrRefusal)
 
         theView = findViewById(R.id.theProposition)
-        taskList = mutableListOf()
         loaddata()
+        displayData()
 
         //Switching between the DB proposition and client input state
         swONE.setOnCheckedChangeListener { _, isChecked ->
@@ -67,7 +62,7 @@ class PlanningActivity : AppCompatActivity() {
             .build()
         workManager.enqueue(uploadRequest)
         workManager.getWorkInfoByIdLiveData(uploadRequest.id)
-            .observe(this, Observer {
+            .observe(this, {
                 theProposition.text = it.state.name
             })
     }
@@ -75,7 +70,7 @@ class PlanningActivity : AppCompatActivity() {
     private fun loaddata() {
         val stringRequest = StringRequest(Request.Method.GET,
             EndPoints.URL_GETDATA,
-            Response.Listener<String> { s ->
+            { s ->
                 try {
                     val internships = JSONArray(s)
 
@@ -93,17 +88,29 @@ class PlanningActivity : AppCompatActivity() {
                         map["Besked:"] = e.getString("Besked")
 
                         val tag1 = "MyActivity"
-                        Log.i(tag1, map.toString());
+                        Log.i(tag1, map.toString())
+
+                        theView?.text = map.toString()
                     }
                 } catch (e: JSONException) {
                     Log.e("log_tag", "Error parsing data $e")
                 }
             },
-            { volleyError -> Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show() })
+            { volleyError ->
+                Toast.makeText(
+                    applicationContext,
+                    volleyError.message,
+                    Toast.LENGTH_LONG
+                ).show()
+            })
 
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
     }
+
+    private fun displayData() {
+        theView?.text = "hejhej"
+        /*theView?.setText(textdata)*/
+
+    }
 }
-
-
