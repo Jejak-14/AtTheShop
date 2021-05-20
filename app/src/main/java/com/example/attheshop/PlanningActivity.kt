@@ -1,18 +1,26 @@
 package com.example.attheshop
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.util.Log
+import android.widget.Button
+import android.widget.Switch
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import kotlinx.android.synthetic.main.activity_planning.*
 import com.android.volley.Request
+import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_planning.*
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import kotlin.collections.HashMap
+
 
 class PlanningActivity : AppCompatActivity() {
 
@@ -67,29 +75,28 @@ class PlanningActivity : AppCompatActivity() {
     private fun loaddata() {
         val stringRequest = StringRequest(Request.Method.GET,
             EndPoints.URL_GETDATA,
-            { s ->
+            Response.Listener<String> { s ->
                 try {
-                    val obj = JSONObject(s)
-                    if (!obj.getBoolean("error")) {
-                        val array = obj.getJSONArray("brugere")
+                    val internships = JSONArray(s)
 
-                        for (i in 0.. array.length()) {
-                            val objectTask = array.getJSONObject(i)
-                            val task = Task(
-                                objectTask.getString("Ordrenummer"),
-                                objectTask.getString("Pris"),
-                                objectTask.getString("Nummerplade"),
-                                objectTask.getString("Aendringer"),
-                                objectTask.getString("Besked"),
-                                objectTask.getString("Ordrestatus")
+                    //Loop the Array
+                    for (i in 0 until internships.length()) {
+                        Log.e("Message", "ORDRE")
 
-                            )
-                        }
-                    } else {
-                        Toast.makeText(applicationContext, obj.getString("message"), Toast.LENGTH_LONG).show()
+                        val map = HashMap<String, String>()
+                        val e: JSONObject = internships.getJSONObject(i)
+
+                        map["Ordrenummer:"] = e.getString("Ordrenummer")
+                        map["Pris:"] = e.getString("Pris")
+                        map["Nummerplade:"] = e.getString("Nummerplade")
+                        map["Aendringer:"] = e.getString("Aendringer")
+                        map["Besked:"] = e.getString("Besked")
+
+                        val tag1 = "MyActivity"
+                        Log.i(tag1, map.toString());
                     }
                 } catch (e: JSONException) {
-                    e.printStackTrace()
+                    Log.e("log_tag", "Error parsing data $e")
                 }
             },
             { volleyError -> Toast.makeText(applicationContext, volleyError.message, Toast.LENGTH_LONG).show() })
