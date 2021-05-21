@@ -2,6 +2,7 @@ package com.example.attheshop
 
 import android.os.Bundle
 import android.util.Log
+import android.util.Xml
 import android.widget.Button
 import android.widget.Switch
 import android.widget.TextView
@@ -17,10 +18,20 @@ import kotlinx.android.synthetic.main.activity_planning.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.util.Arrays.toString
+import kotlin.Unit.toString
 
 class PlanningActivity : AppCompatActivity() {
 
     private var theView: TextView? = null
+
+    val ordreNummer: ArrayList<String> = ArrayList()
+    val nummerplade: ArrayList<String> = ArrayList()
+    val aendringer: ArrayList<String> = ArrayList()
+    val besked: ArrayList<String> = ArrayList()
+    val ordrestatus: ArrayList<String> = ArrayList()
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +42,7 @@ class PlanningActivity : AppCompatActivity() {
 
         theView = findViewById(R.id.theProposition)
         loaddata()
-        displayData()
+        /*displayData()*/
 
         //Switching between the DB proposition and client input state
         swONE.setOnCheckedChangeListener { _, isChecked ->
@@ -78,19 +89,18 @@ class PlanningActivity : AppCompatActivity() {
                     for (i in 0 until internships.length()) {
                         Log.e("Message", "ORDRE")
 
-                        val map = HashMap<String, String>()
                         val e: JSONObject = internships.getJSONObject(i)
 
-                        map["Ordrenummer:"] = e.getString("Ordrenummer")
-                        map["Pris:"] = e.getString("Pris")
-                        map["Nummerplade:"] = e.getString("Nummerplade")
-                        map["Aendringer:"] = e.getString("Aendringer")
-                        map["Besked:"] = e.getString("Besked")
+                        ordreNummer.add(e.getString("Ordrenummer"))
+                        nummerplade.add(e.getString("Nummerplade"))
+                        aendringer.add(e.getString("Aendringer"))
+                        besked.add(e.getString("Besked"))
+                        ordrestatus.add(e.getString("Ordrestatus"))
 
                         val tag1 = "MyActivity"
-                        Log.i(tag1, map.toString())
+                        Log.i(tag1, nummerplade.toString())
 
-                        theView?.text = map.toString()
+
                     }
                 } catch (e: JSONException) {
                     Log.e("log_tag", "Error parsing data $e")
@@ -106,11 +116,5 @@ class PlanningActivity : AppCompatActivity() {
 
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
-    }
-
-    private fun displayData() {
-        theView?.text = "hejhej"
-        /*theView?.setText(textdata)*/
-
     }
 }
