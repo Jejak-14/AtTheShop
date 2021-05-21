@@ -8,19 +8,23 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import java.util.List;
 
 public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHolder> {
     private List<String> mData; // Data der skal fyldes.
     private List<String> mData2;
+    private List<String> mData3;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    RecycleAdaptor(Context context, List<String> data, List<String> data2) {
+    RecycleAdaptor(Context context, List<String> data, List<String> data2, List<String> data3) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data; // constuerer data
         this.mData2 = data2;
+        this.mData3= data3;
+
     }
 
     // inflates the row layout from xml when needed
@@ -37,6 +41,8 @@ public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHold
         holder.myTextView.setText(firstData); //tilføjer data til rows i recyclerview
         String secondData = mData2.get(position);
         holder.mySounds.setText(secondData);
+        String thirdData = mData3.get(position);
+        holder.myDate.setText(thirdData);
     }
 
     // total number of rows
@@ -50,11 +56,13 @@ public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
         TextView mySounds;
+        TextView myDate;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.DateView);
             mySounds = itemView.findViewById(R.id.InfoView);
+            myDate = itemView.findViewById(R.id.NummerPlade);
             itemView.setOnClickListener(this);
         }
 

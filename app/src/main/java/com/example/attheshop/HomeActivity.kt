@@ -33,7 +33,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnHISTORY.setOnClickListener {
-            Intent(this,RecyclerView::class.java).also{
+            Intent(this,RecycleView::class.java).also{
                 startActivity(it)
             }
         }

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AtTheShop">
         <activity android:name=".RecycleView"></activity>
-        <activity android:name=".RecyckelViewActivity" />
+
         <activity android:name=".FragmentView" />
         <activity android:name=".History" />
         <activity android:name=".PlanningActivity" />

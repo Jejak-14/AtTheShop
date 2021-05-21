@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_recycle_view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
@@ -34,10 +36,18 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
         nummer.add("98643721")
         nummer.add("68318462")
 
+        val dato: ArrayList<String> = ArrayList()
+        dato.add(Date(121, 4, 21).toString())
+        dato.add(Date(121, 2, 21).toString())
+        dato.add(Date(121, 1, 21).toString())
+        dato.add(Date(120, 11, 21).toString())
+        dato.add(Date(120, 6, 21).toString())
+
+
         // set up the RecyclerView
         val recyclerView = findViewById<RecyclerView>(R.id.RecycleViewHolderid)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = RecycleAdaptor(this, navn, nummer)
+        adapter = RecycleAdaptor(this, dato, nummer, navn)
         adapter!!.setClickListener(this)
         recyclerView.adapter = adapter
     }
@@ -84,5 +94,8 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
             "You clicked " + adapter!!.getItem(position) + " on row number " + position,
             Toast.LENGTH_SHORT
         ).show()
+        val intent = Intent(this, FragmentView::class.java);
+        intent.putExtra("key", adapter!!.getItem(position));
+        startActivity(intent);
     }
 }
