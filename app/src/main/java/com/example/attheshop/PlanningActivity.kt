@@ -14,6 +14,7 @@ import androidx.work.WorkManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_planning.*
 import org.json.JSONArray
 import org.json.JSONException
@@ -42,7 +43,7 @@ class PlanningActivity : AppCompatActivity() {
 
         theView = findViewById(R.id.theProposition)
         loaddata()
-        /*displayData()*/
+
 
         //Switching between the DB proposition and client input state
         swONE.setOnCheckedChangeListener { _, isChecked ->
@@ -80,7 +81,7 @@ class PlanningActivity : AppCompatActivity() {
 
     private fun loaddata() {
         val stringRequest = StringRequest(Request.Method.GET,
-            EndPoints.URL_GETDATA,
+            EndPoints.URL_GETORDRE,
             { s ->
                 try {
                     val internships = JSONArray(s)
@@ -100,6 +101,7 @@ class PlanningActivity : AppCompatActivity() {
                         val tag1 = "MyActivity"
                         Log.i(tag1, nummerplade.toString())
 
+                        theView?.text = e.toString()
 
                     }
                 } catch (e: JSONException) {
@@ -117,4 +119,5 @@ class PlanningActivity : AppCompatActivity() {
         val requestQueue = Volley.newRequestQueue(this)
         requestQueue.add(stringRequest)
     }
+
 }
