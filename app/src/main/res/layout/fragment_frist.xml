@@ -10,19 +10,19 @@
         android:id="@+id/tvFirstAccept"
         android:layout_width="305dp"
         android:layout_height="68dp"
-        android:text="TextView"
+        android:text="Accepteret"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintVertical_bias="0.957" />
 
     <TextView
         android:id="@+id/tvFirstDato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="First Fragment"
+        android:text="23-05-2021"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,25 +35,25 @@
         android:id="@+id/tvFirstNummerplade"
         android:layout_width="194dp"
         android:layout_height="55dp"
-        android:text="TextView"
+        android:text="VESTEGN"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.292" />
 
     <TextView
         android:id="@+id/tvOrdrebeskrivelse"
-        android:layout_width="320dp"
-        android:layout_height="158dp"
-        android:text="TextView"
+        android:layout_width="319dp"
+        android:layout_height="193dp"
+        android:text="Garrett Turbo montering"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.589" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

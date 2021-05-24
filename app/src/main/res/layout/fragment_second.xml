@@ -7,15 +7,53 @@
     tools:context=".Second_Fragment">
 
     <TextView
-        android:id="@+id/tvSecondFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Second Fragment"
-        android:textSize="30sp"
+        android:id="@+id/tvFirstAccept2"
+        android:layout_width="305dp"
+        android:layout_height="68dp"
+        android:text="Accepteret"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12" />
+        app:layout_constraintVertical_bias="0.808" />
+
+    <TextView
+        android:id="@+id/tvFirstDato2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="27-02-2021"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
+
+    <TextView
+        android:id="@+id/tvFirstNummerplade2"
+        android:layout_width="194dp"
+        android:layout_height="55dp"
+        android:text="POLOPWR"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/tvOrdrebeskrivelse2"
+        android:layout_width="320dp"
+        android:layout_height="158dp"
+        android:text="Ny undervogn og bremseskiver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
