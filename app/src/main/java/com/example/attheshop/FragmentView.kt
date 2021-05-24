@@ -73,9 +73,6 @@ class FragmentView : AppCompatActivity() {
         if (data == "3"){
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.Leopol, firstFragment);
-
-
-
                 commit()
             }}
 
@@ -93,7 +90,7 @@ class FragmentView : AppCompatActivity() {
     private fun loaddata() {
         val stringRequest = StringRequest(
             Request.Method.GET,
-            EndPoints.URL_GETORDRE,
+            EndPoints.URL_ROOT,
             { s ->
                 try {
                     val internships = JSONArray(s)
