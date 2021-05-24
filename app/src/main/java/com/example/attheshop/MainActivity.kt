@@ -35,8 +35,7 @@ class MainActivity : AppCompatActivity() {
         val btnIN = findViewById<Button>(R.id.logInBtn)
         val btnSUPPORT = findViewById<Button>(R.id.btnSupport)
 
-        val brugernavn = findViewById<EditText>(R.id.editTextTextPersonName2)
-        val Viewtext = brugernavn.text
+        val brugernavn = findViewById<EditText>(R.id.editTextTextPersonName2).text
         val pw = findViewById<EditText>(R.id.editTextTextPassword).text
 
         loaddata()
@@ -46,10 +45,48 @@ class MainActivity : AppCompatActivity() {
         btnIN.setOnClickListener {
             Toast.makeText(
                 this,
-                "Brugernavn " + Viewtext + " PassWord " + pw + " NavneSpace " + navn[0].toString(),
+                "Brugernavn " + brugernavn + " PassWord " + pw,
                 Toast.LENGTH_SHORT
             ).show()
-            if(Viewtext.toString() == navn[0] && pw.toString() == password[0])
+
+
+            if(brugernavn.toString() == navn[0] && pw.toString() == password[0])
+            {
+                Toast.makeText(
+                    this,
+                    "True",
+                    Toast.LENGTH_SHORT).show()
+                Intent(this,HomeActivity::class.java).also {
+                    startActivity(it)}
+            }
+            if(brugernavn.toString() == navn[1] && pw.toString() == password[1])
+            {
+                Toast.makeText(
+                    this,
+                    "True",
+                    Toast.LENGTH_SHORT).show()
+                Intent(this,HomeActivity::class.java).also {
+                    startActivity(it)}
+            }
+            if(brugernavn.toString() == navn[2] && pw.toString() == password[2])
+            {
+                Toast.makeText(
+                    this,
+                    "True",
+                    Toast.LENGTH_SHORT).show()
+                Intent(this,HomeActivity::class.java).also {
+                    startActivity(it)}
+            }
+            if(brugernavn.toString() == navn[3] && pw.toString() == password[3])
+            {
+                Toast.makeText(
+                    this,
+                    "True",
+                    Toast.LENGTH_SHORT).show()
+                Intent(this,HomeActivity::class.java).also {
+                    startActivity(it)}
+            }
+            if(brugernavn.toString() == navn[4] && pw.toString() == password[4])
             {
                 Toast.makeText(
                     this,
