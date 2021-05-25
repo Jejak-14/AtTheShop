@@ -22,11 +22,8 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+
         btnPLANNING.setOnClickListener {
-
-            //SERVER CALL//
-
-
             Intent(this,PlanningActivity::class.java).also {
                 startActivity(it)
             }
@@ -37,6 +34,5 @@ class HomeActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
-
     }
 }

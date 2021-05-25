@@ -1,5 +1,6 @@
 package com.example.attheshop
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Xml
@@ -8,6 +9,7 @@ import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
@@ -21,6 +23,8 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.util.Arrays.toString
 import kotlin.Unit.toString
+
+var checking: Boolean = false
 
 class PlanningActivity : AppCompatActivity() {
 
@@ -64,6 +68,12 @@ class PlanningActivity : AppCompatActivity() {
         // Sent accept or refusal
         btnSEND.setOnClickListener {
             setOneTimeWorkRequest()
+
+            if (checking) {
+                Intent(this, MainActivity::class.java).also {
+                    startActivity(it)
+                }
+            }
         }
     }
 
