@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.attheshop">
 
+
+    //Internet Acces permission//
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,11 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AtTheShop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RecycleView"></activity>
 
+        <!--Clear text traffic - Webservice calls api<28+ -->
+        <activity android:name=".RecycleView"></activity>
         <activity android:name=".FragmentView" />
-        <activity android:name=".History" />
-        <activity android:name=".PlanningActivity" />
+        <activity android:name=".PropositionActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SupportActivity" />
         <activity android:name=".MainActivity">

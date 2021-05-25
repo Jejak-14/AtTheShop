@@ -1,17 +1,12 @@
 package com.example.attheshop
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Debug
-import android.text.InputType
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -25,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     val navn: ArrayList<String> = ArrayList()
     val ID: ArrayList<String> = ArrayList()
     val password: ArrayList<String> = ArrayList()
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,61 +48,62 @@ class MainActivity : AppCompatActivity() {
             ).show()
 
             // checking if user matches the password given from the database
-            if(brugernavn.toString() == navn[0] && pw.toString() == password[0])
-            {
+            if (brugernavn.toString() == navn[0] && pw.toString() == password[0]) {
                 Toast.makeText(
                     this,
                     "True",
-                    Toast.LENGTH_SHORT).show()
-                Intent(this,HomeActivity::class.java).also {
-                    startActivity(it)}
-            }
-            else if(brugernavn.toString() == navn[1] && pw.toString() == password[1])
-            {
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else if (brugernavn.toString() == navn[1] && pw.toString() == password[1]) {
                 Toast.makeText(
                     this,
                     "True",
-                    Toast.LENGTH_SHORT).show()
-                Intent(this,HomeActivity::class.java).also {
-                    startActivity(it)}
-            }
-            else if(brugernavn.toString() == navn[2] && pw.toString() == password[2])
-            {
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else if (brugernavn.toString() == navn[2] && pw.toString() == password[2]) {
                 Toast.makeText(
                     this,
                     "True",
-                    Toast.LENGTH_SHORT).show()
-                Intent(this,HomeActivity::class.java).also {
-                    startActivity(it)}
-            }
-            else if(brugernavn.toString() == navn[3] && pw.toString() == password[3])
-            {
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else if (brugernavn.toString() == navn[3] && pw.toString() == password[3]) {
                 Toast.makeText(
                     this,
                     "True",
-                    Toast.LENGTH_SHORT).show()
-                Intent(this,HomeActivity::class.java).also {
-                    startActivity(it)}
-            }
-            else if(brugernavn.toString() == navn[4] && pw.toString() == password[4])
-            {
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else if (brugernavn.toString() == navn[4] && pw.toString() == password[4]) {
                 Toast.makeText(
                     this,
                     "True",
-                    Toast.LENGTH_SHORT).show()
-                    Intent(this,HomeActivity::class.java).also {
-                    startActivity(it) }
-            }
-            else{
+                    Toast.LENGTH_SHORT
+                ).show()
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                }
+            } else {
                 Toast.makeText(
                     this,
                     "False",
-                    Toast.LENGTH_SHORT).show()
-                }
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
 
         }
         btnSUPPORT.setOnClickListener {
-            Intent(this,SupportActivity::class.java).also {
+            Intent(this, SupportActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -117,7 +112,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //fills the Arraylists with values from the database table "kunder"
+    //fills the Arraylists with values from the database table "kunder" //
     private fun loaddata() {
         val stringRequest = StringRequest(
             Request.Method.GET,
@@ -126,20 +121,19 @@ class MainActivity : AppCompatActivity() {
                 try {
                     val internships = JSONArray(s)
 
-                    //Loop the Array
+                    //Loop the Array //
                     for (i in 0 until internships.length()) {
                         Log.e("Message", "ORDER")
 
                         val e: JSONObject = internships.getJSONObject(i)
 
                         navn.add(e.getString("Navn"))
-                        password.add(e.getString("PW"));
+                        password.add(e.getString("PW"))
                         ID.add(e.getString("Id"))
 
                         val tag1 = "MyActivity"
                         Log.i(tag1, navn.toString())
                     }
-
 
 
                 } catch (e: JSONException) {
@@ -160,5 +154,39 @@ class MainActivity : AppCompatActivity() {
         requestQueue.add<String>(stringRequest)
     }
 
+    //onStart is is called when activity is visible to the user.
+    override fun onStart() {
+        super.onStart()
+
+    }
+
+    //onResume is called when the activity is going to the foreground.
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    //onRestart is called when you stop the activity after it has already been running.
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    //onPause is called when an activity goes to the background.
+    override fun onPause() {
+        super.onPause()
+
+    }
+
+    //onStop is called when the activity is no longer visible but can still save data.
+    override fun onStop() {
+        super.onStop()
+
+    }
+
+    //onDestroy is called as the last thing in the activity right before it's destroyed.
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 
 }

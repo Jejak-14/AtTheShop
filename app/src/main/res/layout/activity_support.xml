@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".SupportActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mechanicpic" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -13,6 +25,8 @@
         android:layout_marginTop="10dp"
         android:text="Ring til autohjælp
 "
+        android:textColor="#000000"
+        app:backgroundTint="#FBF9F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +39,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="204dp"
         android:text="Jeg har akut brug for autohjælp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="104dp" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button3"
@@ -35,6 +52,8 @@
         android:layout_marginTop="10dp"
         android:text="Ring til Mekanikeren
 "
+        android:textColor="#090707"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +67,7 @@
         android:layout_marginTop="50dp"
         android:text="Ring til mekanikeren
 "
+        android:textColor="#FAFAFA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +80,8 @@
         android:layout_marginTop="10dp"
         android:text="Ring til Kundesupport
 "
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -73,6 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Jeg har problemer med applikationen"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +107,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Support"
+        android:textColor="#FDFDFD"
         android:textSize="50dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +123,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
         android:text="Tilbage"
+        android:textColor="#000000"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

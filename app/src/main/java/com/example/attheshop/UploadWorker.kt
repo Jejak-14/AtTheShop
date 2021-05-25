@@ -17,13 +17,11 @@ class UploadWorker(context: Context, params: WorkerParameters) : Worker(context,
             for (i in 0..30000) {
                 Log.i("MYTAG", "Uploading $i")
             }
-
-
             Result.success()
 
         } catch (e: Exception) {
             Result.failure()
         }
-        checking = true
+
     }
 }

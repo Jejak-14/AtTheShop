@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlanningActivity">
+    tools:context=".PropositionActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mechanicpic" />
 
     <Button
         android:id="@+id/btnSend"
@@ -12,6 +24,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:text="@string/send_accept"
+        android:textColor="#0B0B0B"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -25,6 +39,7 @@
         android:layout_height="217dp"
         android:gravity="center"
         android:text="@string/the_proposition_will_be_displayed_here"
+        android:textColor="#FAFAFA"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,6 +52,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/refuse_proposition"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/theRefusal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.825"
@@ -53,6 +71,8 @@
         android:importantForAutofill="no"
         android:inputType="textLongMessage|textMultiLine"
         android:isScrollContainer="true"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

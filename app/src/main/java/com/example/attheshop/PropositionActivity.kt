@@ -24,12 +24,11 @@ import org.json.JSONObject
 import java.util.Arrays.toString
 import kotlin.Unit.toString
 
-var checking: Boolean = false
-
-class PlanningActivity : AppCompatActivity() {
+class PropositionActivity : AppCompatActivity() {
 
     private var theView: TextView? = null
 
+    // Local Arrays of the tables from DB //
     val ordreNummer: ArrayList<String> = ArrayList()
     val nummerplade: ArrayList<String> = ArrayList()
     val aendringer: ArrayList<String> = ArrayList()
@@ -42,14 +41,18 @@ class PlanningActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_planning)
 
+        // Send button //
         val btnSEND = findViewById<Button>(R.id.btnSend)
+
+        // Accept/Refusal switch //
         val swONE = findViewById<Switch>(R.id.acceptOrRefusal)
 
+        // Find textview and start to fill it with data //
         theView = findViewById(R.id.theProposition)
         loaddata()
 
 
-        //Switching between the DB proposition and client input state
+        // Switching between the DB proposition and client input state //
         swONE.setOnCheckedChangeListener { _, isChecked ->
             val message = if (isChecked) "The Proposition Is OFF" else "The Proposition Is ON"
             if (isChecked) {
@@ -65,19 +68,13 @@ class PlanningActivity : AppCompatActivity() {
             }
         }
 
-        // Sent accept or refusal
+        // Sent accept or refusal //
         btnSEND.setOnClickListener {
             setOneTimeWorkRequest()
-
-            if (checking) {
-                Intent(this, MainActivity::class.java).also {
-                    startActivity(it)
-                }
-            }
         }
     }
 
-    // The work manager (Manager side)
+    // The work manager (Manager side) //
     private fun setOneTimeWorkRequest() {
         val workManager: WorkManager = WorkManager.getInstance(applicationContext)
         val uploadRequest: OneTimeWorkRequest = OneTimeWorkRequest.Builder(UploadWorker::class.java)
@@ -85,10 +82,13 @@ class PlanningActivity : AppCompatActivity() {
         workManager.enqueue(uploadRequest)
         workManager.getWorkInfoByIdLiveData(uploadRequest.id)
             .observe(this, {
+
+                // display the status //
                 theProposition.text = it.state.name
             })
     }
 
+    // Find data through URL and fill in the local arrays variants //
     private fun loaddata() {
         val stringRequest = StringRequest(Request.Method.GET,
             EndPoints.URL_GETORDRE,
@@ -96,7 +96,7 @@ class PlanningActivity : AppCompatActivity() {
                 try {
                     val internships = JSONArray(s)
 
-                    //Loop the Array
+                    // Fill in the local arrays variants //
                     for (i in 0 until internships.length()) {
                         Log.e("Message", "ORDRE")
 
@@ -108,9 +108,7 @@ class PlanningActivity : AppCompatActivity() {
                         besked.add(e.getString("Besked"))
                         ordrestatus.add(e.getString("Ordrestatus"))
 
-                        val tag1 = "MyActivity"
-                        Log.i(tag1, nummerplade.toString())
-
+                        // Show the results in the view //
                         theView?.text = e.toString()
 
                     }
@@ -118,6 +116,7 @@ class PlanningActivity : AppCompatActivity() {
                     Log.e("log_tag", "Error parsing data $e")
                 }
             },
+            // Fail Toast //
             { volleyError ->
                 Toast.makeText(
                     applicationContext,
@@ -130,4 +129,38 @@ class PlanningActivity : AppCompatActivity() {
         requestQueue.add(stringRequest)
     }
 
+    //onStart is is called when activity is visible to the user.
+    override fun onStart() {
+        super.onStart()
+
+    }
+
+    //onResume is called when the activity is going to the foreground.
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    //onRestart is called when you stop the activity after it has already been running.
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    //onPause is called when an activity goes to the background.
+    override fun onPause() {
+        super.onPause()
+
+    }
+
+    //onStop is called when the activity is no longer visible but can still save data.
+    override fun onStop() {
+        super.onStop()
+
+    }
+
+    //onDestroy is called as the last thing in the activity right before it's destroyed.
+    override fun onDestroy() {
+        super.onDestroy()
+
+    }
 }
