@@ -12,7 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHolder> {
-    private List<String> mData; // Data der skal fyldes.
+    // Data which needs to be filled.
+    private List<String> mData;
     private List<String> mData2;
     private List<String> mData3;
     private LayoutInflater mInflater;
@@ -21,7 +22,8 @@ public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHold
     // data is passed into the constructor
     RecycleAdaptor(Context context, List<String> data, List<String> data2, List<String> data3) {
         this.mInflater = LayoutInflater.from(context);
-        this.mData = data; // constuerer data
+        // constuerer data
+        this.mData = data;
         this.mData2 = data2;
         this.mData3= data3;
 
@@ -66,6 +68,7 @@ public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHold
             itemView.setOnClickListener(this);
         }
 
+        //finding which position was clicked
         @Override
         public void onClick(View view) {
             if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());

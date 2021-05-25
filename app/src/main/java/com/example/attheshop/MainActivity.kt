@@ -21,6 +21,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
+    //ArrayList for the database input
     val navn: ArrayList<String> = ArrayList()
     val ID: ArrayList<String> = ArrayList()
     val password: ArrayList<String> = ArrayList()
@@ -35,21 +36,24 @@ class MainActivity : AppCompatActivity() {
         val btnIN = findViewById<Button>(R.id.logInBtn)
         val btnSUPPORT = findViewById<Button>(R.id.btnSupport)
 
+        // Get reference to the EditText bokses
         val brugernavn = findViewById<EditText>(R.id.editTextTextPersonName2).text
         val pw = findViewById<EditText>(R.id.editTextTextPassword).text
 
+        //call the loaddata funktion
         loaddata()
 
 
         // set on-click listener
         btnIN.setOnClickListener {
+            //test to see if the text match
             Toast.makeText(
                 this,
                 "Brugernavn " + brugernavn + " PassWord " + pw,
                 Toast.LENGTH_SHORT
             ).show()
 
-
+            // checking if user matches the password given from the database
             if(brugernavn.toString() == navn[0] && pw.toString() == password[0])
             {
                 Toast.makeText(
@@ -59,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(this,HomeActivity::class.java).also {
                     startActivity(it)}
             }
-            if(brugernavn.toString() == navn[1] && pw.toString() == password[1])
+            else if(brugernavn.toString() == navn[1] && pw.toString() == password[1])
             {
                 Toast.makeText(
                     this,
@@ -68,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(this,HomeActivity::class.java).also {
                     startActivity(it)}
             }
-            if(brugernavn.toString() == navn[2] && pw.toString() == password[2])
+            else if(brugernavn.toString() == navn[2] && pw.toString() == password[2])
             {
                 Toast.makeText(
                     this,
@@ -77,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(this,HomeActivity::class.java).also {
                     startActivity(it)}
             }
-            if(brugernavn.toString() == navn[3] && pw.toString() == password[3])
+            else if(brugernavn.toString() == navn[3] && pw.toString() == password[3])
             {
                 Toast.makeText(
                     this,
@@ -86,21 +90,21 @@ class MainActivity : AppCompatActivity() {
                 Intent(this,HomeActivity::class.java).also {
                     startActivity(it)}
             }
-            if(brugernavn.toString() == navn[4] && pw.toString() == password[4])
+            else if(brugernavn.toString() == navn[4] && pw.toString() == password[4])
             {
                 Toast.makeText(
                     this,
                     "True",
                     Toast.LENGTH_SHORT).show()
-                Intent(this,HomeActivity::class.java).also {
-                    startActivity(it)}
+                    Intent(this,HomeActivity::class.java).also {
+                    startActivity(it) }
             }
             else{
                 Toast.makeText(
                     this,
                     "False",
                     Toast.LENGTH_SHORT).show()
-            }
+                }
 
         }
         btnSUPPORT.setOnClickListener {
@@ -112,6 +116,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    //fills the Arraylists with values from the database table "kunder"
     private fun loaddata() {
         val stringRequest = StringRequest(
             Request.Method.GET,

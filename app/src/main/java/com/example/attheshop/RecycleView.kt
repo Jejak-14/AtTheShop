@@ -21,25 +21,22 @@ import kotlin.collections.ArrayList
 
 
 class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
+    // adapter value
     var adapter: RecycleAdaptor? = null
 
+    //arraylist values which is getting filled from load data
     val ordreNummer: ArrayList<String> = ArrayList()
     val nummerplade: ArrayList<String> = ArrayList()
     val aendringer: ArrayList<String> = ArrayList()
     val besked: ArrayList<String> = ArrayList()
     val ordrestatus: ArrayList<String> = ArrayList()
 
-    val navn: ArrayList<String> = ArrayList()
-    val email: ArrayList<String> = ArrayList()
-    val nummer: ArrayList<String> = ArrayList()
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycle_view)
 
+        //calling the loaddata function
         loaddata()
 
         // data to populate the first column of the RecyclerView with (test)
@@ -58,6 +55,7 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
         nummer.add("98643721")
         nummer.add("68318462")
 
+        // data to populate the third column og the RecylerView with (test)
         val dato: ArrayList<String> = ArrayList()
         dato.add(Date(121, 5, 23).toString())
         dato.add(Date(121, 2, 21).toString())
@@ -69,7 +67,7 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
 
 
     }
-
+        // load data from the database
     private fun loaddata() {
         val stringRequest = StringRequest(
             Request.Method.GET,
@@ -98,6 +96,7 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
                         Log.i(tag1, nummerplade.toString())
                     }
 
+                    //creating the RecyclerView
                     val recyclerView = findViewById<RecyclerView>(R.id.RecycleViewHolderid)
                     recyclerView.layoutManager = LinearLayoutManager(this)
                     adapter = RecycleAdaptor(this, ordreNummer, nummerplade, ordrestatus)
@@ -159,6 +158,7 @@ class RecycleView : AppCompatActivity(), RecycleAdaptor.ItemClickListener {
 
     }
 
+    //click event which sendt at toast and send data to the FragmentView
     override fun onItemClick(view: View?, position: Int) {
         Toast.makeText(
             this,
