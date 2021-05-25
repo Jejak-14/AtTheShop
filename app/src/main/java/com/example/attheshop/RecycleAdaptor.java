@@ -22,7 +22,7 @@ public class RecycleAdaptor extends RecyclerView.Adapter<RecycleAdaptor.ViewHold
     // data is passed into the constructor
     RecycleAdaptor(Context context, List<String> data, List<String> data2, List<String> data3) {
         this.mInflater = LayoutInflater.from(context);
-        // constuerer data
+        // constucktor data
         this.mData = data;
         this.mData2 = data2;
         this.mData3= data3;
